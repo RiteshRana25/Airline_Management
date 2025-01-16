@@ -10,7 +10,7 @@ const port = 5000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 // MongoDB Connection
 mongoose.connect('mongodb+srv://riteshrana251104:Wme7KRrm6nY2u1D8@airline.j35ch.mongodb.net/airline?retryWrites=true&w=majority', { 
