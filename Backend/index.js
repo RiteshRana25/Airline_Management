@@ -10,7 +10,7 @@ const port = 5000;
 
 // Middleware
 app.use(cors({
-  origin:[""],
+  origin:["https://airline-management-9ykr.vercel.app"],
   method:["POST","GET"],
   credentials:true
 }));
