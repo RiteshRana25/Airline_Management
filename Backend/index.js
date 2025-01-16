@@ -9,7 +9,11 @@ const app = express();
 const port = 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin:[""],
+  method:["POST","GET"],
+  credentials:true
+}));
 app.use(express.json());
 
 // MongoDB Connection
@@ -20,6 +24,9 @@ mongoose.connect('mongodb+srv://riteshrana251104:Wme7KRrm6nY2u1D8@airline.j35ch.
   .then(() => console.log('MongoDB Atlas connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
+app.get("/",(req,res)=>{
+  res.json("hello"),
+    })
 
 // Schema for User
 const userSchema = new mongoose.Schema({
