@@ -1,34 +1,22 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const connectToDatabase = require('./db'); // Import MongoDB connection logic
 
 // Initialize Express app
 const app = express();
-const port = 5000;
 
 // Middleware
 app.use(cors({
-  origin:["https://airline-management-9ykr.vercel.app"],
-  method:["POST","GET"],
-  credentials:true
+  origin: "https://airline-management-9ykr.vercel.app", // Update with your frontend URL
+  methods: ["POST", "GET"],
+  credentials: true,
 }));
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect('mongodb+srv://riteshrana251104:Wme7KRrm6nY2u1D8@airline.j35ch.mongodb.net/airline?retryWrites=true&w=majority', { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true 
-})
-  .then(() => console.log('MongoDB Atlas connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+// Schemas for MongoDB
+const mongoose = require('mongoose');
 
-app.get("/",(req,res)=>{
-  res.json("hello"),
-    })
-
-// Schema for User
 const userSchema = new mongoose.Schema({
   firstname: { type: String },
   lastname: { type: String },
@@ -41,7 +29,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Schema for Booking
 const bookingSchema = new mongoose.Schema({
   departureCity: { type: String, required: true },
   arrivalCity: { type: String, required: true },
@@ -54,7 +41,18 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-// Route to handle user registration
+// Middleware to connect to MongoDB
+app.use(async (req, res, next) => {
+  await connectToDatabase();
+  next();
+});
+
+// Routes
+app.get("/", (req, res) => {
+  res.json("Hello! Your backend is working.");
+});
+
+// User Registration
 app.post('/submit-form', async (req, res) => {
   const { firstname, lastname, username, email, phonenumber, gender, password } = req.body;
 
@@ -103,7 +101,7 @@ app.post('/submit-form', async (req, res) => {
   }
 });
 
-// Route to handle login
+// User Login
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -132,7 +130,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Route to handle booking a flight
+// Book a Flight
 app.post('/bookFlight', async (req, res) => {
   const { departureCity, arrivalCity, departureDate, totalPrice, username, totalTraveller } = req.body;
 
@@ -159,12 +157,11 @@ app.post('/bookFlight', async (req, res) => {
 
     res.status(201).json({ message: 'Booking successful!', booking: newBooking });
   } catch (err) {
-    console.error('Error booking flight:', err);
     res.status(500).json({ message: 'Server error during booking.' });
   }
 });
 
-// Route to fetch bookings by username
+// Fetch Bookings by Username
 app.get('/bookings/:username', async (req, res) => {
   const { username } = req.params;
 
@@ -179,18 +176,7 @@ app.get('/bookings/:username', async (req, res) => {
   }
 });
 
-app.get('/bookings', async (req, res) => {
-  try {
-    const bookings = await Booking.find(); // Get all bookings, no filter applied
-    res.status(200).json(bookings);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error while fetching bookings.', error });
-  }
-});
-
-
-// Route to update booking status
-// Express route to handle updating booking status
+// Update Booking Status
 app.patch('/bookings/:id', async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
@@ -212,7 +198,5 @@ app.patch('/bookings/:id', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Export the app for Vercel
+module.exports = app;
