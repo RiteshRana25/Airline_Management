@@ -1,0 +1,118 @@
+.time {
+  cursor: pointer;
+  margin-left: 10px;
+  padding-left: 10px;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  height: 125px;
+  margin-top: -100px;
+  border: 0.1em solid black;
+  color: black;
+  transition: border-radius 1s ease, background-color 1s ease,color 1s ease,border 1s ease;
+}
+
+
+.time:hover{
+  background-color: #fff;
+  border-radius: 30px;
+  border: 0.1em solid black;
+  color: black;
+}
+
+.date-section {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  width: 100%; 
+  margin-right: 10px;
+  align-items: center; /* Center the label and date */
+}
+
+.date-section.half {
+  width: 100%;
+  position: relative;
+}
+
+.date-section div {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.date-section input,
+.react-datepicker__input-container input,
+.custom-date-input {
+  display: none; /* Hide the input fields */
+}
+
+.react-datepicker-wrapper {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.react-datepicker {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: black;
+}
+
+.react-datepicker__input-container {
+  border: none;
+}
+
+.date-section div {
+  font-size: 16px;
+}
+
+.time .date-section {
+  margin-bottom: 10px;
+}
+
+/* Center the Departure label when round-trip is not clicked */
+.date-section label {
+  text-align: center;
+  width: 100%;
+  
+}
+
+.date-section.half + .date-section.half {
+  border-left: 2px solid black; /* Vertical border between Departure and Return */
+  padding-left: 20px; /* Add space for the border */
+  height: 100%; /* Ensure it spans the full height */
+  display: flex;
+  flex-direction: column;
+}
+
+.date-section.half + .date-section.half::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  border-left: 2px solid white;
+  z-index: 1; /* Make sure it stays in the background */
+} 
+
+/* Custom CSS for DatePicker */
+.react-datepicker__day {
+  font-size: 24px; /* Increase font size for the days */
+  height: 40px; /* Increase height for each day */
+  width: 40px; /* Increase width for each day */
+  line-height: 40px; /* Center the number inside the day cell */
+  text-align: center;
+}
+
+/* Optionally, you can add a hover effect or style the selected day */
+.react-datepicker__day--selected {
+  background-color: #007bff; /* Blue background for selected day */
+  color: white;
+}
+
+.react-datepicker__day--disabled {
+  color: #ccc; /* Grey color for disabled days */
+}

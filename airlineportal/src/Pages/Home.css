@@ -1,0 +1,190 @@
+.App {
+  background-image: url('../../../bbbb.jpg');
+  height: 185vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  /* Prevents the image from repeating */
+  background-size: cover;
+  /* Makes the image cover the div completely */
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.last1,
+.last2,
+.last3,
+.last4,
+.last5,
+.last6,
+.last7,
+.last8,
+.last9 {
+  display: flex;
+  align-items: center;
+  width: 330px;
+  height: 80px;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.last {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 3px 30px 0 rgb(0 0 0 / 10%);
+  padding: 25px 40px 40px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.lastouter{
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 3px 30px 0 rgb(0 0 0 / 10%);
+  padding: 25px 40px 40px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.lastouter1,
+.lastouter2,
+.lastouter3,
+.lastouter4,
+.lastouter5,
+.lastouter6,
+.lastouter7,
+.lastouter8,
+.lastouter9{
+  display: flex;
+  align-items: center;
+  width: 330px;
+  height: 80px;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6,
+.img7,
+.img8,
+.img9{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-left: 20px;
+}
+.img1{
+  background-image: url('../../../chennai.avif');
+    background-size: cover;
+    background-position: center;
+}
+.img2{
+  background-image: url('../../../Goa.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img3{
+  background-image: url('../../../Mumbai.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img4{
+  background-image: url('../../../hydrabad.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img5{
+  background-image: url('../../../Delhi.avif');
+    background-size: cover;
+    background-position: center;
+}
+.img6{
+  background-image: url('../../../Pune.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img7{
+  background-image: url('../../../kolkata.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img8{
+  background-image: url('../../../Bangalore.webp');
+    background-size: cover;
+    background-position: center;
+}
+.img9{
+  background-image: url('../../../Jaipur.avif');
+    background-size: cover;
+    background-position: center;
+}
+a {
+  text-decoration: none;
+  color: inherit; /* Maintain the current color */
+}
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
+.image6,
+.image7,
+.image8,
+.image9{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-left: 20px;
+}
+.image1{
+  background-image: url('../../../london.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image2{
+  background-image: url('../../../washington.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image3{
+  background-image: url('../../../bangkok.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image4{
+  background-image: url('../../../newyork.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image5{
+  background-image: url('../../../paris.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image6{
+  background-image: url('../../../frankfurt.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image7{
+  background-image: url('../../../wuhan.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image8{
+  background-image: url('../../../milan.webp');
+    background-size: cover;
+    background-position: center;
+}
+.image9{
+  background-image: url('../../../madrid.webp');
+    background-size: cover;
+    background-position: center;
+}

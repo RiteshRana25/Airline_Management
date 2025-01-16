@@ -1,0 +1,83 @@
+.header{
+  display: flex;
+  flex-direction: row-reverse;
+  box-shadow: 2px 2px 2px 2px black;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5); 
+}
+.login {
+  display: inline-block; /* Use inline-block instead of inline for better control */
+  height: 50px;
+  width: 160px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 20px;
+  cursor: pointer;
+  padding-left: 20px;
+  font-size: large;
+  appearance: none;
+  background: white url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 4 5%22%3E%3Cpath fill%3D%22%23000%22 d%3D%22M0 0L2 2L4 0z%22/%3E%3C/svg%3E') no-repeat right 5px center;
+  background-size: 12px;
+  border: 1px solid #ddd;
+  transition: border-radius 0.5s ease;
+  background-color: #4aa0fc;
+}
+.login:hover {
+  border-radius: 30px;
+  background-color: #046fe0;
+}
+.login:focus {
+  outline: none;
+  border-color: #0056b3;
+}
+
+.title{
+  margin-top: 20px;
+  flex: 0.4;
+  font-size: xx-large;
+}
+.switch1{
+  margin-top: 35px;
+  margin-right: 10px;
+  background-color: rgb(0, 153, 255);
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.switch2{
+  margin-top: 35px;
+  margin-right: 10px;
+  background-color: black;
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.light{
+  display: flex;
+  background-color: yellow;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 30px;
+  height: 100%;
+  border-right:1px solid black;
+  border-radius: 50px;
+}
+.dark{
+  display: flex;
+  margin-left: 60%;
+  background-color: white;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 30px;
+  height: 100%;
+  border-left:1px solid white;
+  border-radius: 50px;
+}

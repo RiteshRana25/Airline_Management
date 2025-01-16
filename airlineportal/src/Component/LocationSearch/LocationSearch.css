@@ -1,0 +1,89 @@
+.search-location-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.search-from,
+.search-to {
+  background-color: #2d3748;
+  margin-top: 40px;
+  width: 165px;
+  height: 50px;
+  padding-left: 10px;
+  padding-top: 10px;
+  border: 0.1em solid black;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  cursor: pointer;
+  transition: border-radius 0.5s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+
+.search-from:hover {
+  border-radius: 20px 0 0 20px;
+  background-color: rgb(252, 250, 250);
+}
+
+.search-to:hover {
+  border-radius: 0 20px 20px 0;
+  background-color: rgb(252, 250, 250);
+}
+
+.search-location-input {
+  position: absolute;
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.search-location-input input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.search-location-input span {
+  margin: 5px 0;
+  font-size: large;
+}
+
+.search-dropdown {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.search-dropdown-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  color: black;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-citycode {
+  margin-left: auto;
+  align-content: space-evenly;
+}
+
+.search-dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-error {
+  color: red;
+  margin-top: 20px;
+  text-align: center;
+}

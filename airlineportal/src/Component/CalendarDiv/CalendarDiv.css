@@ -1,0 +1,140 @@
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+}
+
+.calendar-trigger {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #2d3748;
+  cursor: pointer;
+  width: 170px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin-left: 140px;
+  height: 25px;
+}
+
+.calendar-trigger:hover {
+  background-color: #525e73;
+}
+
+.calendar-container {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.nav-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #0056b3;
+}
+
+.month-display {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+}
+
+.calendar-days,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day-name {
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.calendar-date {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.calendar-date:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.calendar-date.selected {
+  background-color: #007bff;
+  color: black;
+  font-weight: bold;
+}
+.calendar-date.disabled {
+  color: #ccc;
+  pointer-events: none;
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.calendar-date.disabled:hover {
+  transform: none;
+  background-color: #f5f5f5;
+}
+.calendar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.calendar-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 1100; /* Higher than the overlay background */
+}
+
+.calendar-wrapper {
+  position: relative;
+  z-index: auto; /* Default stacking context */
+}
+.depart-label{
+  margin-top: -10px;
+  color: rgb(0, 140, 255);
+  margin-bottom: 5px;
+}

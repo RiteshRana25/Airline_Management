@@ -1,0 +1,80 @@
+
+.singlediv{
+  border: 1px solid #ccc;
+  margin: 10px;
+  margin-top: 30px;
+  padding: 10px;
+  height: 150px;
+}
+.whichcontain{
+  display: flex;
+  position: relative;
+}
+.aircode{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.departtime{
+  position: absolute;
+  top: 50%;
+  left:18%;
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+  margin-top: 20px;
+}
+.totaltime{
+  position: absolute;
+  top: 50%;
+  left:38%;
+  width:200px;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  display: flex;
+  align-items:center;
+  justify-Content:center; 
+  text-Align:center;
+  margin-top: 20px;
+}
+.arivaltime{
+  position: absolute;
+  top: 50%;
+  left:70%;
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+  margin-top: 20px;
+}
+.totalcost{
+  margin-top: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  top: 50%;
+  right: 0;
+  font-size: x-large;
+}
+.bookingbutton button{
+  margin-top: 100px;
+  width: 120px;
+  height: 40px; /* Increased height to accommodate padding */
+  padding: 0 12px; /* Adjusted padding for horizontal spacing */
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 0; /* Adjust this as necessary */
+  left: 370px; /* Adjust this as necessary */
+  display: flex;
+  align-items: center;  /* Vertically center the text */
+  justify-content: center; /* Center text horizontally */
+}

@@ -1,0 +1,90 @@
+.travellers {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 250px;
+  height: 100px;
+  margin-top: -100px;
+  font-size: large;
+}
+
+.traveller-summary {
+  padding: 15px 20px;
+  border: 1px solid black;
+  font-size: 18px; /* Increased font size for better readability */
+  width: 200px; /* Matches the container width */
+  height: 92px; /* Adjusted height */
+  text-align: center; /* Centered text */
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  transition: border-radius 1s ease, background-color 1s ease,color 1s ease, border 1s ease;
+}
+
+.traveller-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px; /* Matches the summary width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 10px 0; /* Adds spacing inside the dropdown */
+}
+
+.traveller-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centers items vertically */
+  padding: 10px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 18px; /* Matches font size for a consistent look */
+}
+
+.traveller-item:last-child {
+  border-bottom: none; /* Removes border from the last item */
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter button {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px; /* Larger buttons for better interactivity */
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.counter button:hover {
+  background: #ddd;
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.counter span {
+  font-size: 18px; /* Matches the rest of the font size */
+  min-width: 30px; /* Ensures enough space for numbers */
+  text-align: center;
+}
+
+.traveller-summary:hover {
+  background-color: #f9f9f9;
+  border-radius: 30px;
+  border: 1px solid black;
+  color: black;
+}
+
+.traveller-summary:focus {
+  outline: 2px solid #007bff;
+}

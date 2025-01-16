@@ -1,0 +1,95 @@
+.roundcontain {
+  display: flex;
+  justify-content: space-between; /* Adds space between the two flight sections */
+  gap: 20px; /* Adds some space between the elements */
+}
+
+.singleround, .singleround1 {
+  height: 220px;
+  width: 450px;
+  border: 1px solid rgba(0, 140, 255, 0.6);
+  padding: 10px 14px;
+  position: relative;
+  border-radius: 8px; /* Adds rounded corners */
+  background-color: #f9f9f9; /* Adds a light background for better visibility */
+}
+
+.roundname, .roundname1 {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  width: 100%;
+  align-items: center; /* Aligns items vertically */
+  justify-content: space-between; /* Spreads the name and currency apart */
+}
+
+.currency, .currency1 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10%;
+  text-align: right; /* Ensures text is aligned to the right */
+}
+
+.roundmain, .roundmain1 {
+  position: relative;
+  margin-top: 70px;
+}
+
+.rounddetail, .rounddetail1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Aligns child elements */
+}
+
+.firstd, .firstd1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the start */
+}
+
+.secondd, .secondd1 {
+  position: absolute;
+  right: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.thirdd, .thirdd1 {
+  position: absolute;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align text to the end */
+}
+
+.roundname span,
+.currency span,
+.roundname1,
+.currency1 {
+  font-size: 12px;
+}
+
+.rounddetail div {
+  display: flex;
+  align-items: center;
+}
+
+.roundmain .line {
+  background-color: #3498db;
+  height: 2px;
+  width: 180px;
+  position: relative;
+  margin: 10px 0;
+}
+
+.roundmain .line span {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+}

@@ -1,0 +1,22 @@
+
+.checkboxround{
+  margin-top: 30px;
+}
+.departiconreturn{
+  display: flex;
+}
+.arivaliconreturn{
+  display: flex;
+}
+.a1{
+  cursor: pointer;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 20px;
+  border: .7px solid #dfdfdf;
+  align-items: center;  /* Centers items horizontally */
+  justify-content: center;  /* Centers items vertically */
+  text-align: center;
+}
