@@ -417,7 +417,7 @@ const FlightSearch = ({
 
       // Send the booking data to your backend
       const response = await axios.post(
-        "http://localhost:5000/bookFlight",
+        "https://airline-management-backend.vercel.app/bookFlight",
         bookingDetails
       );
       console.log("Booking successful:", response.data);
