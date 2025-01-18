@@ -14,7 +14,7 @@ const Status = () => {
       const fetchBookings = async () => {
         try {
           console.log(`Fetching bookings for username: ${username}`); // Debugging line
-          const response = await axios.get(`http://localhost:5000/bookings/${username}`);
+          const response = await axios.get(`https://airline-management-backend.vercel.app/bookings/${username}`);
           console.log('Bookings fetched:', response.data); // Debugging line
           setBookings(response.data); // Store booking data in state
           setError(""); // Clear any previous errors
