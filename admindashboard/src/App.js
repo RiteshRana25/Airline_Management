@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get("https://airline-management-three.vercel.app/bookings");
+        const response = await axios.get("https://airline-management-backend.vercel.app/bookings");
         setBookings(response.data);
         setError("");
       } catch (err) {
@@ -25,7 +25,7 @@ const App = () => {
   const updateStatus = async (id, newStatus) => {
     try {
       const response = await axios.patch(
-        `https://airline-management-three.vercel.app/bookings/${id}`,
+        `https://airline-management-backend.vercel.app/bookings/${id}`,
         { status: newStatus }
       );
       if (response.data.booking) {
