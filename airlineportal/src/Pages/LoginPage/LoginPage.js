@@ -35,7 +35,7 @@ const LoginPage = () => {
 
     // Send login data to backend
     axios
-      .post('http://localhost:5000/login', formData)
+      .post('https://airline-management-backend.vercel.app/login', formData)
       .then((response) => {
         console.log(response.data);
         setIsLoggedIn(true);
