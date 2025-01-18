@@ -29,12 +29,8 @@ const App = () => {
         { status: newStatus }
       );
       if (response.data.booking) {
-        // Update the status in the local state after successful PATCH request
-        setBookings((prev) =>
-          prev.map((booking) =>
-            booking._id === id ? { ...booking, status: newStatus } : booking
-          )
-        );
+        // Remove the booking from the local state after status update
+        setBookings((prev) => prev.filter((booking) => booking._id !== id));
       }
     } catch (err) {
       console.error("Error updating booking:", err);
@@ -48,49 +44,49 @@ const App = () => {
       {error && <div className="error">{error}</div>}
       <div className="booking-list">
         {bookings.length > 0 ? (
-          bookings.map((booking) => (
-            <div key={booking._id} className="booking-item">
-              <div className="booking-info">
-                <h3>
-                  {booking.departureCity} to {booking.arrivalCity}
-                </h3>
-                <p>
-                  Departure Date:{" "}
-                  {(() => {
-                    const originalDate = new Date(booking.departureDate);
-                    const adjustedDate = new Date(
-                      originalDate.setFullYear(originalDate.getFullYear() + 24)
-                    );
-                    return adjustedDate.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    });
-                  })()}
-                </p>
+          bookings
+            .filter((booking) => booking.status === "Pending") // Only display bookings with status "Pending"
+            .map((booking) => (
+              <div key={booking._id} className="booking-item">
+                <div className="booking-info">
+                  <h3>
+                    {booking.departureCity} to {booking.arrivalCity}
+                  </h3>
+                  <p>
+                    Departure Date:{" "}
+                    {(() => {
+                      const originalDate = new Date(booking.departureDate);
+                      const adjustedDate = new Date(
+                        originalDate.setFullYear(originalDate.getFullYear() + 24)
+                      );
+                      return adjustedDate.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      });
+                    })()}
+                  </p>
 
-                <p>Total Price: ₹ {booking.totalPrice}</p>
-                <p>Total Travellers: {booking.totalTraveller}</p>
-                <p>Status: {booking.status}</p>
+                  <p>Total Price: ₹ {booking.totalPrice}</p>
+                  <p>Total Travellers: {booking.totalTraveller}</p>
+                  <p>Status: {booking.status}</p>
+                </div>
+                <div className="booking-actions">
+                  <button
+                    className="action-button approve"
+                    onClick={() => updateStatus(booking._id, "Approved")}
+                  >
+                    <CheckSharpIcon />
+                  </button>
+                  <button
+                    className="action-button reject"
+                    onClick={() => updateStatus(booking._id, "Rejected")}
+                  >
+                    <CloseIcon />
+                  </button>
+                </div>
               </div>
-              <div className="booking-actions">
-                <button
-                  className="action-button approve"
-                  onClick={() => updateStatus(booking._id, "Approved")}
-                  disabled={booking.status !== "Pending"}
-                >
-                  <CheckSharpIcon />
-                </button>
-                <button
-                  className="action-button reject"
-                  onClick={() => updateStatus(booking._id, "Rejected")}
-                  disabled={booking.status !== "Pending"}
-                >
-                  <CloseIcon />
-                </button>
-              </div>
-            </div>
-          ))
+            ))
         ) : (
           <p>No bookings to display.</p>
         )}
