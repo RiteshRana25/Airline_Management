@@ -692,7 +692,7 @@ const FlightSearchReturn = ({
       // Send the booking data for both flights
       const responses = await Promise.all(
         bookingDetails.map((details) =>
-          axios.post("http://localhost:5000/bookFlight", details)
+          axios.post("https://airline-management-backend.vercel.app/bookFlight", details)
         )
       );
 
