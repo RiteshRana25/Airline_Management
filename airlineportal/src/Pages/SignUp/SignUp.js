@@ -56,7 +56,7 @@ function SignUp() {
 
     // Send form data to backend
     axios
-      .post('http://localhost:5000/submit-form', formData)
+      .post('https://airline-management-backend.vercel.app/submit-form', formData)
       .then((response) => {
         console.log('Form submitted successfully:', response.data);
         alert('Form submitted successfully!');
