@@ -29,8 +29,9 @@ const FlightSearchMulti2 = ({
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const apiKey = 'F4LGsfx2BrFcM2Xy6K3yiJmAmjiISi9G';
-  const apiSecret = 'OfHPO1gx8jCuMYDf';
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiSecret = process.env.REACT_APP_API_SECRET;
+
 
   const fetchFlightData = async () => {
     setLoading(true);

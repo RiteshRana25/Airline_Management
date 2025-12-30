@@ -9,8 +9,9 @@ const FlightOffers = () => {
   const [accessToken, setAccessToken] = useState(""); // Access token for Amadeus API
 
   // Function to fetch the access token
-  const apiKey = "906ZDGG8nAKATZxuPASRrXqxDrE1XNsZ";
-  const apiSecret = "6TGNxBJy7qKKa8KI";
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiSecret = process.env.REACT_APP_API_SECRET;
+
   const fetchAccessToken = async () => {
     try {
       const response = await axios.post(

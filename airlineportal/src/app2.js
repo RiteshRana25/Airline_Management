@@ -3,8 +3,9 @@ import axios from 'axios';
 import './App2.css';
 
 const App = () => {
-  const apiKey = '906ZDGG8nAKATZxuPASRrXqxDrE1XNsZ';
-  const apiSecret = '6TGNxBJy7qKKa8KI';
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiSecret = process.env.REACT_APP_API_SECRET;
+
 
   const [searchQueryFrom, setSearchQueryFrom] = useState('');
   const [searchQueryTo, setSearchQueryTo] = useState('');

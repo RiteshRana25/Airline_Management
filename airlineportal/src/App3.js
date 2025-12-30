@@ -10,7 +10,7 @@ const App3 = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/bookings?status=Pending");
+        const response = await axios.get("https://airline-management-three.vercel.app/bookings?status=Pending");
         setBookings(response.data);
         setError("");
       } catch (err) {
@@ -24,7 +24,7 @@ const App3 = () => {
   // Update the status of a booking
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/bookings/${id}`, { status: newStatus });
+      await axios.patch(`https://airline-management-three.vercel.app/bookings/${id}`, { status: newStatus });
       setBookings((prev) => prev.filter((booking) => booking._id !== id)); // Remove from list
     } catch (err) {
       console.error("Error updating booking:", err);

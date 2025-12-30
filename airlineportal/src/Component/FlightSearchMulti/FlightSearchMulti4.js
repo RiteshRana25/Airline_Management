@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, CircularProgress } from "@mui/material";
 import "./FlightSearchMulti.css";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const FlightSearchMulti4 = ({
   nonStop,
@@ -20,7 +20,7 @@ const FlightSearchMulti4 = ({
   selectedFlight4,
   setSelectedFlight4,
   setSelectedFlightDetails4,
-  setFormattedDate4
+  setFormattedDate4,
 }) => {
   const [error05, setError05] = useState("");
   const [airplanes, setAirplanes] = useState([]);
@@ -29,8 +29,8 @@ const FlightSearchMulti4 = ({
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const apiKey = 'F4LGsfx2BrFcM2Xy6K3yiJmAmjiISi9G';
-  const apiSecret = 'OfHPO1gx8jCuMYDf';
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiSecret = process.env.REACT_APP_API_SECRET;
 
   const fetchFlightData = async () => {
     setLoading(true);
@@ -324,12 +324,12 @@ const FlightSearchMulti4 = ({
     const flightSegments = [];
     const airlineIATA = [];
     const uniqueIATACodes = new Set(); // Set to store unique IATA codes
-  
+
     const firstDepartureTime = new Date(itinerary.segments[0].departure.at);
     const lastArrivalTime = new Date(
       itinerary.segments[itinerary.segments.length - 1].arrival.at
     );
-  
+
     itinerary.segments.forEach((segment, index) => {
       // Get airline name and code
       const airline = airplanes.find(
@@ -338,20 +338,20 @@ const FlightSearchMulti4 = ({
       const airlineName = airline ? airline.commonName : segment.carrierCode;
       airlinesSet.add(airlineName);
       allAirlines.push(airlineName);
-  
+
       const airlineIataCode = airline ? airline.iataCode : segment.carrierCode;
       airlineIATA.push(airlineIataCode);
-  
+
       // Add unique IATA code to the set
       uniqueIATACodes.add(airlineIataCode);
-  
+
       // Collect cities and times
       departureCities.push(segment.departure.iataCode);
       arrivalCities.push(segment.arrival.iataCode);
-  
+
       const departureTime = new Date(segment.departure.at);
       const arrivalTime = new Date(segment.arrival.at);
-  
+
       departureTimes.push(
         departureTime.toLocaleTimeString([], {
           hour: "2-digit",
@@ -366,7 +366,7 @@ const FlightSearchMulti4 = ({
           hour12: false,
         })
       );
-  
+
       // Calculate durations
       const segmentDurationMs = arrivalTime - departureTime;
       segmentDurations.push(
@@ -374,7 +374,7 @@ const FlightSearchMulti4 = ({
           (segmentDurationMs / (1000 * 60)) % 60
         }m`
       );
-  
+
       if (index < itinerary.segments.length - 1) {
         const nextDepartureTime = new Date(
           itinerary.segments[index + 1].departure.at
@@ -386,17 +386,17 @@ const FlightSearchMulti4 = ({
           }m`
         );
       }
-  
+
       // Carrier code and flight number
       flightSegments.push(`${segment.carrierCode} ${segment.number}`);
     });
-  
+
     // Calculate total duration
     const totalDurationMs = lastArrivalTime - firstDepartureTime;
     const totalDuration = `${Math.floor(totalDurationMs / (1000 * 60 * 60))}h ${
       (totalDurationMs / (1000 * 60)) % 60
     }m`;
-  
+
     // Prepare flight details object
     const flightDetails = {
       airlines: Array.from(airlinesSet),
@@ -429,7 +429,8 @@ const FlightSearchMulti4 = ({
     setSelectedFlightDetails4(flightDetails);
   };
   return (
-    <Container className="searchmulti"
+    <Container
+      className="searchmulti"
       maxWidth="md"
       style={{
         border: "8px solid #e5eef5",
@@ -452,7 +453,7 @@ const FlightSearchMulti4 = ({
                 {flight.itineraries.map((itinerary, idx) => (
                   <div className="whichcontain" key={idx}>
                     <div className="aircode">
-                    <div
+                      <div
                         style={{
                           background: "white",
                           position: "relative",
@@ -612,11 +613,11 @@ const FlightSearchMulti4 = ({
                       <span> per adult</span>
                     </div>
                     <div className="bookingbutton">
-                    <button
+                      <button
                         type="button"
                         onClick={() => handleSelectFlight(flight, itinerary)} // Set the selected flight and its details
                         style={{
-                          backgroundColor:"#3498db",
+                          backgroundColor: "#3498db",
                           color: "white",
                           padding: "10px 20px",
                           border: "none",
@@ -624,11 +625,18 @@ const FlightSearchMulti4 = ({
                           cursor: "pointer",
                         }}
                       >
-                        {selectedFlight4?.id === flight.id
-                          ?<>
-                          <span style={{display:"flex"}}><CheckCircleIcon style={{marginTop:'2px',fontSize:'16px'}}/>Selected</span>
-                          </> 
-                          : "Select"}
+                        {selectedFlight4?.id === flight.id ? (
+                          <>
+                            <span style={{ display: "flex" }}>
+                              <CheckCircleIcon
+                                style={{ marginTop: "2px", fontSize: "16px" }}
+                              />
+                              Selected
+                            </span>
+                          </>
+                        ) : (
+                          "Select"
+                        )}
                       </button>
                     </div>
                   </div>

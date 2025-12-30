@@ -44,8 +44,9 @@ const FlightSearchReturn = ({
   const [totalTraveler, setTotalTraveler] = useState(1);
   const [formattedDate, setFormattedDate] = useState('')
   const [formattedDate1, setFormattedDate1] = useState('')
-  const apiKey = "F4LGsfx2BrFcM2Xy6K3yiJmAmjiISi9G";
-  const apiSecret = "OfHPO1gx8jCuMYDf";
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiSecret = process.env.REACT_APP_API_SECRET;
+
 
   const getAccessToken = async () => {
     setLoading(true);

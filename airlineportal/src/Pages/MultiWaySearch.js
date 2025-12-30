@@ -343,7 +343,7 @@ const MultiWaySearch = () => {
       // Send the booking data for both flights
       const responses = await Promise.all(
         bookingDetails.map((details) =>
-          axios.post("https://airline-management-backend.vercel.app/bookFlight", details)
+          axios.post("https://airline-management-three.vercel.app/bookFlight", details)
         )
       );
 
@@ -396,7 +396,7 @@ const MultiWaySearch = () => {
       // Send the booking data for both flights
       const responses = await Promise.all(
         bookingDetails.map((details) =>
-          axios.post("https://airline-management-backend.vercel.app/bookFlight", details)
+          axios.post("https://airline-management-three.vercel.app/bookFlight", details)
         )
       );
 
@@ -457,7 +457,7 @@ const MultiWaySearch = () => {
       // Send the booking data for both flights
       const responses = await Promise.all(
         bookingDetails.map((details) =>
-          axios.post("https://airline-management-backend.vercel.app/bookFlight", details)
+          axios.post("https://airline-management-three.vercel.app/bookFlight", details)
         )
       );
 
@@ -525,7 +525,7 @@ const MultiWaySearch = () => {
       // Send the booking data for both flights
       const responses = await Promise.all(
         bookingDetails.map((details) =>
-          axios.post("https://airline-management-backend.vercel.app/bookFlight", details)
+          axios.post("https://airline-management-three.vercel.app/bookFlight", details)
         )
       );
 
