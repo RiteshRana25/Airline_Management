@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get("https://airline-management-backend.vercel.app/bookings");
+        const response = await axios.get("https://airline-management-three.vercel.app/bookings");
         setBookings(response.data);
         setError("");
       } catch (err) {
