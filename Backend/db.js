@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let isConnected; // Track the connection state
+let isConnected; 
 
 async function connectToDatabase() {
   if (isConnected) {
